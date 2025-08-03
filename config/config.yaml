@@ -1,0 +1,56 @@
+# Data Configuration
+data:
+  raw_data_path: "data/raw/telco_churn.csv"
+  processed_data_path: "data/processed/"
+  test_size: 0.2
+  random_state: 42
+
+# Model Configuration
+model:
+  models_to_train:
+    - "logistic_regression"
+    - "random_forest"
+    - "xgboost"
+    - "gradient_boosting"
+  
+  hyperparameter_tuning:
+    enabled: true
+    cv_folds: 5
+    n_trials: 100
+  
+  evaluation_metrics:
+    - "accuracy"
+    - "precision"
+    - "recall"
+    - "f1"
+    - "roc_auc"
+
+# Feature Engineering
+features:
+  numerical_features:
+    - "tenure"
+    - "MonthlyCharges"
+    - "TotalCharges"
+  
+  categorical_features:
+    - "gender"
+    - "Partner"
+    - "Dependents"
+    - "PhoneService"
+    - "MultipleLines"
+    - "InternetService"
+    - "OnlineSecurity"
+    - "OnlineBackup"
+    - "DeviceProtection"
+    - "TechSupport"
+    - "StreamingTV"
+    - "StreamingMovies"
+    - "Contract"
+    - "PaperlessBilling"
+    - "PaymentMethod"
+
+# Output Configuration
+output:
+  model_path: "models/"
+  reports_path: "reports/"
+  visualizations_path: "visualizations/"
